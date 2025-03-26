@@ -1,6 +1,13 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
-plugins { id("com.facebook.react.settings") }
-extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
+        google()
+    }
+}
+
 rootProject.name = 'toastify.example'
 include ':app'
+
+// Incluir o plugin do React Native corretamente
 includeBuild('../node_modules/@react-native/gradle-plugin')

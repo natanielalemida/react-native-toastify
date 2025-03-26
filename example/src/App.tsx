@@ -1,20 +1,21 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-toastify';
+import React from 'react';
+import { View, Button } from 'react-native';
+import toast, { ToastContainer } from 'react-native-toastify';
 
-const result = multiply(3, 7);
+const App: React.FC = () => {
+  const handleToast = () => {
+    toast.show('Esta é uma mensagem de informação');
+    toast.success('Sucesso!');
+    toast.error('Erro!', 5000);
+    toast.warning('Atenção!');
+  };
 
-export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Button title="Mostrar Toast" onPress={handleToast} />
+      <ToastContainer />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
